@@ -2,7 +2,7 @@
   "name": "chat-app",
   "version": "0.0.1",
   "description": "a chat app similar to picto-chat",
-  "main": "app.js",
+  "main": "build/index.js",
   "scripts": {
     "tsc": "tsc",
     "start": "node build/index.js"
