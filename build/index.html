@@ -1,10 +1,11 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>PictoChat</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
+
       form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
       form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
       form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
@@ -16,6 +17,16 @@
   <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
+        //promting the user to enter a username before entering
+        window.onload = load;
+        var person;
+        function load() {
+          person = prompt("enter a username between 3 & 15 characters", "anon");
+          while(person.length < 3 || person.length > 15){
+            person = prompt("enter a username between 3 & 15 characters", "anon");
+          }
+        }
+        //js code for adding on the messages to the unordered list
       $(function () {
         var socket = io();
         $('form').submit(function(e){
@@ -25,7 +36,7 @@
           return false;
         });
         socket.on('chat message', function(msg){
-      $('#messages').append($('<li>').text(msg));
+      $('#messages').append($('<li>').text(person + ": " + msg));//printing the message & username
     });
       });
     </script>
