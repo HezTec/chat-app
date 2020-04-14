@@ -13,6 +13,13 @@ io.on('connection', function(socket: any) {
   });
 });
 
+io.on('connection', function(socket: any) {
+  socket.on('chat message', function(msg: any) {
+    console.log('message: ' + msg);
+    io.emit('chat message', msg);
+  });
+});
+
 http.listen(3000, function() {
   console.log('listening on *:3000');
 });
