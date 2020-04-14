@@ -4,7 +4,8 @@
   "description": "a chat app similar to picto-chat",
   "main": "app.js",
   "scripts": {
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "start": "node build/index.js"
   },
   "repository": {
     "type": "git",
