@@ -5,15 +5,18 @@
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 20px Helvetica, Arial; }
-
       form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
       form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
       form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
       #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
+      #messages li { padding: 5px 10px;}
       #messages li:nth-child(odd) { background: #efe; }
+      #chat-win{padding-bottom:2.6%}
     </style>
   </head>
+
+
+
   <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
@@ -26,22 +29,33 @@
             person = prompt("enter a username between 3 & 15 characters", "anon");
           }
         }
-        //js code for adding on the messages to the unordered list
+
+        //sending messages typed locally to the socket
       $(function () {
         var socket = io();
         $('form').submit(function(e){
           e.preventDefault(); // prevents page reloading
-          socket.emit('chat message', $('#m').val());
+          socket.emit('chat message',person+ ": " + $('#m').val());
           $('#m').val('');
           return false;
         });
+        //calling the socket for chat messages and posting them
         socket.on('chat message', function(msg){
-      $('#messages').append($('<li>').text(person + ": " + msg));//printing the message & username
-    });
+          if(msg != ""){
+            $('#messages').append($('<li>').text(msg));//printing the message & username
+            window.scrollTo(0,document.body.scrollHeight);// auto scrolling to the bottom of the screen after each chat
+          }
+        });
       });
     </script>
+
+
+
+
   <body>
-    <ul id="messages"></ul>
+    <div id="chat-win">
+      <ul id="messages"></ul>
+    </div>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
