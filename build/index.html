@@ -1,48 +1,23 @@
 <!doctype html>
 <html>
-  <head>
-    <title>PictoChat</title>
-    <link href="index.css" type="text/css" rel="stylesheet" />
-  </head>
+
+<head>
+  <title>PictoChat</title>
+  <link href="html_ref/css/index.css" type="text/css" rel="stylesheet" />
+  <link rel="icon" href="html_ref/images/mintIcon.png">
 
   <script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>
-        //promting the user to enter a username before entering chat
-        window.onload = load;
-        var person;
-        function load() {
-          person = prompt("enter a username between 3 & 15 characters", "anon");
-          while(person.length < 3 || person.length > 15){
-            person = prompt("enter a username between 3 & 15 characters", "anon");
-          }
-        }
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="html_ref/js/message.js"></script>
+</head>
 
-        //sending messages typed locally to the socket
-      $(function () {
-        var socket = io();
-        $('form').submit(function(e){
-          e.preventDefault(); // prevents page reloading
-          socket.emit('chat message',person+ ": " + $('#m').val());
-          $('#m').val('');
-          return false;
-        });
-        //calling the socket for chat messages and posting them
-        socket.on('chat message', function(msg){
-          if(msg != ""){
-            $('#messages').append($('<li>').text(msg));//printing the message & username
-            window.scrollTo(0,document.body.scrollHeight);// auto scrolling to the bottom of the screen after each chat
-          }
-        });
-      });
-    </script>
+<body>
+  <div id="chat-win">
+    <ul id="messages"></ul>
+  </div>
+  <form action="">
+    <input id="m" autocomplete="off" /><button>Send</button>
+  </form>
+</body>
 
-  <body>
-    <div id="chat-win">
-      <ul id="messages"></ul>
-    </div>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
-  </body>
 </html>

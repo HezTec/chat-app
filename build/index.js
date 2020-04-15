@@ -10,14 +10,16 @@ var io = require('socket.io')(http);
 var port = process.env.PORT || 3000; //getting the port
 app.use(express_1.default.static('public')); //telling the node.js sever where to get static files like css and images
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/index.html'); //assigning the html file where input comes from
 });
+//detecting user connections
 io.on('connection', function (socket) {
     console.log('a user connected');
     socket.on('disconnect', function () {
         console.log('user disconnected');
     });
 });
+//getting chat messages from users and emitting them to everyone else
 io.on('connection', function (socket) {
     socket.on('chat message', function (msg) {
         console.log('message: ' + msg);
