@@ -4,7 +4,7 @@
   "description": "a chat app similar to picto-chat",
   "main": "build/index.js",
   "engines": {
-  "node": ">=6.11.5"
+    "node": ">=6.11.5"
   },
   "scripts": {
     "tsc": "tsc",
@@ -26,10 +26,8 @@
   "dependencies": {
     "@types/express": "^4.17.6",
     "@types/socket.io": "^2.1.4",
-    "blueimt-md5":"^1.13.0",
     "express": "^4.17.1",
     "socket.io": "^2.3.0",
-    "ts-md5":"^1.2.7"
   },
   "devDependencies": {
     "tslint": "^6.1.1"

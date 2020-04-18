@@ -1,5 +1,4 @@
 import express from "express";//importing express library
-import { Md5 } from 'ts-md5/dist/md5';//temp libaray for hashing
 
 let app = require('express')();
 let http = require('http').createServer(app);
