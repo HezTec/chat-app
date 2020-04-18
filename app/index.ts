@@ -2,7 +2,9 @@ import express from "express";//importing express library
 
 let app = require('express')();
 let http = require('http').createServer(app);
-let io = require('socket.io')(http);
+let io = require('socket.io')(http, {
+  pingTimeout: 60000000
+});
 let port = process.env.PORT || 3000;//getting the port
 
 
@@ -37,7 +39,6 @@ io.on('connection', function(socket: any) {
   socket.on('disconnect', function() {
 
     //seaching for a user in the users array an removing them upon disconnect
-    console.log(users);
     var count = 0;//count for while loop
     var found = false;//finding the user in the array
     while (found == false) {
