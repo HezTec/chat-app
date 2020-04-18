@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "a chat app similar to picto-chat",
   "main": "build/index.js",
+  "engines": {
+  "node": ">=6.11.5"
+  },
   "scripts": {
     "tsc": "tsc",
     "start": "node build/index.js"
