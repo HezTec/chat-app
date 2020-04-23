@@ -34,10 +34,35 @@ form button {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+#chat{
+  width: 67%;
+}
+
+#canvas{
+  border: 1px solid black;
+}
+
+#can{
+  position: fixed;
+  margin-left: 67%;
+}
+
+#clear{
+  margin:auto;
+  background: rgb(130, 224, 255);
+  border: 2px solid black;
+  padding: 10px;
+  width: 15%;
 }
 
 #messages li {
   padding: 5px 10px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 #messages li:nth-child(odd) {
@@ -46,4 +71,6 @@ form button {
 
 #chat-win {
   padding-bottom: 2.6%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }

@@ -7,6 +7,9 @@ var filter = /^[A-Za-z0-9]+$/;//filter for usernames
 var userList = [];
 var socket = io.connect();//the socket object
 
+/*
+  load fucntion for window.onload
+*/
 function load() {
   //this line will request the users array in index.ts and send back a user_list function in the socket
   socket.emit('user_list_request');
@@ -29,8 +32,6 @@ function load() {
     }
   }
 
-
-
 }
 /*
   this function prepares a private message in the chat form
@@ -43,9 +44,7 @@ function displayId(ownId) {
 
 //sending messages typed locally to the socket
 $(function() {
-
   var userList = [];//the list of current users on the channel
-
 
   //gets the current user list and saves it in the userList global variable
   socket.on('user_list', function(users) {

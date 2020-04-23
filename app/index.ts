@@ -8,11 +8,6 @@ let io = require('socket.io')(http, {
 let port = process.env.PORT || 3000;//getting the port
 
 
-
-
-//part of the test code for the hash map--------------TEST----------------
-// let userMap = new Map();
-
 let users = [{//array of connected users
   name: '',
   socket: ''
@@ -66,14 +61,6 @@ io.on('connection', function(socket: any) {
       socket: socket.id
     }
 
-    //test code for using a hash map in place of an array--------------TEST-----------------
-    //creating the hashcode and logging the userdata into a map
-    // var hashcode = Md5.hashStr(person);
-    // var newCode = '';
-    // for (var i = 0; i < hashcode.length; i++) {
-    //   newCode += hashcode[i];
-    // }
-    // userMap.set(newCode, personJSON);//setting the user info into the map
 
     users.push(personJSON);//pushing the json data to the array
     //arrow funciton to sort the json user array by name
@@ -114,14 +101,6 @@ io.on('connection', function(socket: any) {
     io.to(sendId).emit('private message', 'PM From ' + ownName + msg);
     io.to(ownId).emit('private message', 'PM to ' + recName + msg);
   });
-
-  //prototype code to send the map as a json array string to be---------TEST----------
-  //converted to a map later on using JSON.parse()
-  // socket.on('user_list_request', function() {
-  //   let transitStr = JSON.stringify(Array.from(userMap));
-  //   io.to(socket.id).emit('user_list', transitStr);
-  // });
-
 });
 
 
