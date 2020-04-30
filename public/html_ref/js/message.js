@@ -125,7 +125,7 @@ $(function() {
     img.src = dataUrl;
 
     function start() {
-      $('#messages').append($("<li onclick='displayId(\"" + ownId + "\");'>").text(img));
+      $('#messages').append(img);
     }
   });
 
