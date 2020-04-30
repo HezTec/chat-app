@@ -49,6 +49,7 @@ form button {
 #can{
   position: fixed;
   float: right;
+  z-index: -900;
 }
 
 #test{

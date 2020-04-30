@@ -46,7 +46,7 @@ function displayId(ownId) {
 function sendPic() {
   var ownId = socket.id;//your own id to be sent
   var dataUrl = document.getElementById('canvas').toDataURL();
-  socket.emit('sendPic', dataUrl, ownId);
+  socket.emit('sendPic', dataUrl, ownId, person);
 
 }
 
@@ -119,14 +119,17 @@ $(function() {
     }
   });
 
-  socket.on('sendPicAll', function(dataUrl, ownId) {
+  socket.on('sendPicAll', function(dataUrl, ownId, person) {
     var img = new Image();
     img.onload = start;
     img.src = dataUrl;
 
     function start() {
+      $('#messages').append($('<li style=\"color:purple;\">').text(person + ': ')); //printing the message & username
       $('#messages').append(img);
+      window.scrollTo(0, document.body.scrollHeight); // auto scrolling to the bottom of the screen after each chat
     }
+
   });
 
 });
