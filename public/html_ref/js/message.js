@@ -41,6 +41,11 @@ function displayId(ownId) {
 }
 
 
+function sendPic() {
+  var dataUrl = $('canvas').toDataURL();
+  console.log(dataUrl)
+}
+
 
 //sending messages typed locally to the socket
 $(function() {

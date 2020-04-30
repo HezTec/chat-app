@@ -6,10 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express")); //importing express library
 var app = require('express')();
 var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+var io = require('socket.io')(http, {
+    pingTimeout: 60000000
+});
 var port = process.env.PORT || 3000; //getting the port
-//part of the test code for the hash map--------------TEST----------------
-// let userMap = new Map();
 var users = [{
         name: '',
         socket: ''
@@ -28,7 +28,6 @@ io.on('connection', function (socket) {
     //detecting user disconnections
     socket.on('disconnect', function () {
         //seaching for a user in the users array an removing them upon disconnect
-        console.log(users);
         var count = 0; //count for while loop
         var found = false; //finding the user in the array
         while (found == false) {
@@ -52,14 +51,6 @@ io.on('connection', function (socket) {
             name: person,
             socket: socket.id
         };
-        //test code for using a hash map in place of an array--------------TEST-----------------
-        //creating the hashcode and logging the userdata into a map
-        // var hashcode = Md5.hashStr(person);
-        // var newCode = '';
-        // for (var i = 0; i < hashcode.length; i++) {
-        //   newCode += hashcode[i];
-        // }
-        // userMap.set(newCode, personJSON);//setting the user info into the map
         users.push(personJSON); //pushing the json data to the array
         //arrow funciton to sort the json user array by name
         users.sort(function (n1, n2) {
@@ -91,12 +82,6 @@ io.on('connection', function (socket) {
         io.to(sendId).emit('private message', 'PM From ' + ownName + msg);
         io.to(ownId).emit('private message', 'PM to ' + recName + msg);
     });
-    //prototype code to send the map as a json array string to be---------TEST----------
-    //converted to a map later on using JSON.parse()
-    // socket.on('user_list_request', function() {
-    //   let transitStr = JSON.stringify(Array.from(userMap));
-    //   io.to(socket.id).emit('user_list', transitStr);
-    // });
 });
 http.listen(port, function () {
     console.log('listening on *:3000');

@@ -48,25 +48,36 @@ form button {
 
 #can{
   position: fixed;
-  margin-left: 67%;
+  float: right;
+}
+
+#test{
+  margin-left:205%;
 }
 
 #clear{
-  float: left;
-  margin-left: 20px;
+  margin-right: 100px;
+  float:right;
   background: rgb(130, 224, 255);
   border: 2px solid black;
   padding: 10px;
-  width: 15%;
+  width: 10%;
+}
+
+#test2{
+  width: 50%;
+  float: right;
+  margin-top: 35%;
+  position: fixed;
+  margin-left: 55%;
 }
 
 #sendPic{
-  float: right;
-  margin-right: 20px;
+  margin-left: 30%;
   background: rgb(130, 224, 255);
   border: 2px solid black;
   padding: 10px;
-  width: 15%;
+  width: 10%;
 }
 
 #messages li {
