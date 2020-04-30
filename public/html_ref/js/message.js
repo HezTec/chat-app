@@ -7,6 +7,9 @@ var filter = /^[A-Za-z0-9]+$/;//filter for usernames
 var userList = [];
 var socket = io.connect();//the socket object
 
+/*
+  load fucntion for window.onload
+*/
 function load() {
   //this line will request the users array in index.ts and send back a user_list function in the socket
   socket.emit('user_list_request');
@@ -29,8 +32,6 @@ function load() {
     }
   }
 
-
-
 }
 /*
   this function prepares a private message in the chat form
@@ -39,13 +40,20 @@ function displayId(ownId) {
   $('#m').val('/p ' + ownId + ' ');
 }
 
+/*
+  this function serilizes the pictures and sends data to the server
+*/
+function sendPic() {
+  var ownId = socket.id;//your own id to be sent
+  var dataUrl = document.getElementById('canvas').toDataURL();
+  socket.emit('sendPic', dataUrl, ownId, person);
+
+}
 
 
 //sending messages typed locally to the socket
 $(function() {
-
   var userList = [];//the list of current users on the channel
-
 
   //gets the current user list and saves it in the userList global variable
   socket.on('user_list', function(users) {
@@ -110,4 +118,18 @@ $(function() {
       window.scrollTo(0, document.body.scrollHeight); // auto scrolling to the bottom of the screen after each chat
     }
   });
+
+  socket.on('sendPicAll', function(dataUrl, ownId, person) {
+    var img = new Image();
+    img.onload = start;
+    img.src = dataUrl;
+
+    function start() {
+      $('#messages').append($('<li style=\"color:purple;\">').text(person + ': ')); //printing the message & username
+      $('#messages').append(img);
+      window.scrollTo(0, document.body.scrollHeight); // auto scrolling to the bottom of the screen after each chat
+    }
+
+  });
+
 });

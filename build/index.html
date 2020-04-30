@@ -9,15 +9,29 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
   <script src="html_ref/js/message.js"></script>
+
 </head>
 
 <body>
-  <div id="chat-win">
-    <ul id="messages"></ul>
+  <div id='can'>
+    <div id="test">
+      <canvas id="canvas" width="500" height="500"></canvas>
+    </div>
   </div>
-  <form action="">
-    <input id="m" autocomplete="off" /><button>Send</button>
-  </form>
+  <div id="test2">
+    <p id="clear">clear</p>
+    <p id="sendPic" onclick="sendPic();">send</p>
+  </div>
+  <script src="html_ref/js/draw.js"></script>
+  <div id='chat'>
+    <div id="chat-win">
+      <ul id="messages"></ul>
+    </div>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+  </div>
+
 </body>
 
 </html>
