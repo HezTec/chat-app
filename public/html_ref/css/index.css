@@ -52,7 +52,17 @@ form button {
 }
 
 #clear{
-  margin:auto;
+  float: left;
+  margin-left: 20px;
+  background: rgb(130, 224, 255);
+  border: 2px solid black;
+  padding: 10px;
+  width: 15%;
+}
+
+#sendPic{
+  float: right;
+  margin-right: 20px;
   background: rgb(130, 224, 255);
   border: 2px solid black;
   padding: 10px;
@@ -70,7 +80,7 @@ form button {
 }
 
 #chat-win {
-  padding-bottom: 2.6%;
+  padding-bottom: 4%;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
