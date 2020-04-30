@@ -38,34 +38,34 @@ form button {
   word-wrap: break-word;
 }
 
-#chat{
+#chat {
   width: 67%;
 }
 
-#canvas{
+#canvas {
   border: 1px solid black;
 }
 
-#can{
-  position: fixed;
+#can {
   float: right;
-  z-index: -900;
+  position: fixed;
+  height: 1px;
 }
 
-#test{
-  margin-left:205%;
+#test {
+  margin-left: 205%;
 }
 
-#clear{
+#clear {
   margin-right: 100px;
-  float:right;
+  float: right;
   background: rgb(130, 224, 255);
   border: 2px solid black;
   padding: 10px;
   width: 10%;
 }
 
-#test2{
+#test2 {
   width: 50%;
   float: right;
   margin-top: 35%;
@@ -73,7 +73,7 @@ form button {
   margin-left: 55%;
 }
 
-#sendPic{
+#sendPic {
   margin-left: 30%;
   background: rgb(130, 224, 255);
   border: 2px solid black;
