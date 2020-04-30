@@ -82,6 +82,9 @@ io.on('connection', function (socket) {
         io.to(sendId).emit('private message', 'PM From ' + ownName + msg);
         io.to(ownId).emit('private message', 'PM to ' + recName + msg);
     });
+    socket.on('sendPic', function (dataUrl, ownId) {
+        io.emit('sendPicAll', dataUrl, ownId);
+    });
 });
 http.listen(port, function () {
     console.log('listening on *:3000');

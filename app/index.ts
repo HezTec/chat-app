@@ -101,6 +101,10 @@ io.on('connection', function(socket: any) {
     io.to(sendId).emit('private message', 'PM From ' + ownName + msg);
     io.to(ownId).emit('private message', 'PM to ' + recName + msg);
   });
+
+  socket.on('sendPic', function(dataUrl: any, ownId: string) {
+    io.emit('sendPicAll', dataUrl, ownId);
+  });
 });
 
 

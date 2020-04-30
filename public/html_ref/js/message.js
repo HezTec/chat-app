@@ -40,10 +40,14 @@ function displayId(ownId) {
   $('#m').val('/p ' + ownId + ' ');
 }
 
-
+/*
+  this function serilizes the pictures and sends data to the server
+*/
 function sendPic() {
-  var dataUrl = $('canvas').toDataURL();
-  console.log(dataUrl)
+  var ownId = socket.id;//your own id to be sent
+  var dataUrl = document.getElementById('canvas').toDataURL();
+  socket.emit('sendPic', dataUrl, ownId);
+
 }
 
 
@@ -114,4 +118,15 @@ $(function() {
       window.scrollTo(0, document.body.scrollHeight); // auto scrolling to the bottom of the screen after each chat
     }
   });
+
+  socket.on('sendPicAll', function(dataUrl, ownId) {
+    var img = new Image();
+    img.onload = start;
+    img.src = dataUrl;
+
+    function start() {
+      $('#messages').append($("<li onclick='displayId(\"" + ownId + "\");'>").text(img));
+    }
+  });
+
 });
