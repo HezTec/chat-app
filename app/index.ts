@@ -118,6 +118,7 @@ io.on('connection', function(socket: any) {
     io.to(ownId).emit('private message', 'PM to ' + recName + msg, sendId);
   });
 
+
   /**
    *  receiving and sending pictures to the chat
    *@param {base64 dataURL} dataUrl the raw data of a picture to be sent

@@ -57,7 +57,7 @@ function sendPic() {
  */
 $(function() {
   var userList = []; //the list of current users on the channel
-
+  
   //gets the current user list and saves it in the userList global variable
   socket.on('user_list', function(users) {
     for (var i = 0; i < users.length; i++) {

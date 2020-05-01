@@ -108,6 +108,7 @@ io.on('connection', function (socket) {
         io.emit('sendPicAll', dataUrl, ownId, person);
     });
 });
+
 http.listen(port, function () {
     console.log('listening on *:3000');
 });
