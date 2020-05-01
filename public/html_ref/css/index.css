@@ -30,6 +30,11 @@ form button {
   width: 9%;
 }
 
+img{
+  border: 1px solid black;
+  margin-left: 10px;
+}
+
 #messages {
   list-style-type: none;
   margin-right: 500px;
@@ -40,6 +45,7 @@ form button {
 
 #chat {
   width: 100%;
+  float:left;
 }
 
 #canvas {
@@ -49,21 +55,21 @@ form button {
 }
 
 #test {
+  height: 1px;
   width:100%;
-  float: right;
   position:fixed;
 }
 
 #test2 {
   width: 500px;
   float: right;
-  margin-top: 35%;
+  margin-top: 600PX;
   position: fixed;
   margin-left: 67%;
 }
 
 #clear {
-  margin-right: 100px;
+  margin-right: 20%;
   float: right;
   background: rgb(130, 224, 255);
   border: 2px solid black;

@@ -23,7 +23,11 @@ app.get('/', function(req: any, res: any) {
 
 io.on('connection', function(socket: any) {
 
-  //getting chat messages from users and emitting them to everyone else
+  /**
+   *getting chat messages from users and emitting them to everyone else
+   *@param {string} msg the message to be sent
+   *@param {string} ownId the id of the user that sent the message
+   */
   socket.on('chat message', function(msg: any, ownId: any) {
     console.log('message: ' + msg + 'from: ' + ownId);
     io.emit('chat message', msg, ownId);
@@ -53,7 +57,10 @@ io.on('connection', function(socket: any) {
     }
   });
 
-  //getting user info once they enter their name and putting it in the array
+  /**
+   *getting user info once they enter their name and putting it in the array
+   *@param {string} person the name of the user sending the message
+   */
   socket.on('joined', function(person: string) {
 
     var personJSON = {
@@ -77,6 +84,7 @@ io.on('connection', function(socket: any) {
     });
 
     console.log(users);
+    //notifying the users in chat someone has joined the chat
     io.emit('join/leave message', person + ' has joined the chat!', socket.id)
   });
 
@@ -87,6 +95,13 @@ io.on('connection', function(socket: any) {
     console.log("sending user info to " + socket.id);
   });
 
+  /**
+   * this function receives and sends a private message to the chat
+   *@param {string} msg the message received from the user that will be sent
+   *@param {string} sendId the id of the user that will receive the message
+   *@param {string} ownId the id of the sender of the message
+   *@param {string} ownName the name of the user sending the message
+   */
   socket.on('private message', function(msg: string, sendId: string, ownId: string, ownName: string) {
     //TODO: find the name of who you are sending to in the array from the socket.id
     //and put it in the message to the sender as in "PM to 'insert name here': 'message'"
@@ -98,10 +113,17 @@ io.on('connection', function(socket: any) {
       }
     }
 
-    io.to(sendId).emit('private message', 'PM From ' + ownName + msg);
-    io.to(ownId).emit('private message', 'PM to ' + recName + msg);
+    //sending the private messages to the chat
+    io.to(sendId).emit('private message', 'PM From ' + ownName + msg, ownId);
+    io.to(ownId).emit('private message', 'PM to ' + recName + msg, sendId);
   });
 
+  /**
+   *  receiving and sending pictures to the chat
+   *@param {base64 dataURL} dataUrl the raw data of a picture to be sent
+   *@param {string} ownId the id of the sender of the picture
+   *@param {string} person the name of the sender of the picture
+   */
   socket.on('sendPic', function(dataUrl: any, ownId: string, person: string) {
     io.emit('sendPicAll', dataUrl, ownId, person);
   });
