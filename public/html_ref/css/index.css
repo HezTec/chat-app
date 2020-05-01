@@ -30,58 +30,63 @@ form button {
   width: 9%;
 }
 
+img{
+  border: 1px solid black;
+  margin-left: 10px;
+}
+
 #messages {
   list-style-type: none;
-  margin: 0;
+  margin-right: 500px;
   padding: 0;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
 
-#chat{
-  width: 67%;
+#chat {
+  width: 100%;
+  float:left;
 }
 
-#canvas{
+#canvas {
   border: 1px solid black;
-}
-
-#can{
-  position: fixed;
-  float: right;
-  z-index: -900;
-}
-
-#test{
-  margin-left:205%;
-}
-
-#clear{
-  margin-right: 100px;
+  /* margin-left:520px; */
   float:right;
+}
+
+#test {
+  height: 1px;
+  width:100%;
+  position:fixed;
+}
+
+#test2 {
+  width: 500px;
+  float: right;
+  margin-top: 600PX;
+  position: fixed;
+  margin-left: 67%;
+}
+
+#clear {
+  margin-right: 20%;
+  float: right;
   background: rgb(130, 224, 255);
   border: 2px solid black;
   padding: 10px;
-  width: 10%;
+  width: 78px;
 }
 
-#test2{
-  width: 50%;
-  float: right;
-  margin-top: 35%;
-  position: fixed;
-  margin-left: 55%;
-}
-
-#sendPic{
+#sendPic {
   margin-left: 30%;
   background: rgb(130, 224, 255);
   border: 2px solid black;
   padding: 10px;
-  width: 10%;
+  width: 78px;
 }
 
 #messages li {
+  width: 100%;
   padding: 5px 10px;
   overflow-wrap: break-word;
   word-wrap: break-word;
