@@ -31,9 +31,8 @@ form button {
 }
 
 #messages {
-  width: 67%;
   list-style-type: none;
-  margin: 0;
+  margin-right: 500px;
   padding: 0;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -56,11 +55,11 @@ form button {
 }
 
 #test2 {
-  width: 50%;
+  width: 500px;
   float: right;
   margin-top: 35%;
   position: fixed;
-  margin-left: 55%;
+  margin-left: 67%;
 }
 
 #clear {
