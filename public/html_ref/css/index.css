@@ -44,6 +44,7 @@ form button {
 
 #canvas {
   border: 1px solid black;
+  margin-left:520px;
 }
 
 #can {
@@ -53,16 +54,9 @@ form button {
 }
 
 #test {
-  margin-left: 205%;
-}
-
-#clear {
-  margin-right: 100px;
+  width:50%;
   float: right;
-  background: rgb(130, 224, 255);
-  border: 2px solid black;
-  padding: 10px;
-  width: 10%;
+
 }
 
 #test2 {
@@ -73,12 +67,21 @@ form button {
   margin-left: 55%;
 }
 
+#clear {
+  margin-right: 100px;
+  float: right;
+  background: rgb(130, 224, 255);
+  border: 2px solid black;
+  padding: 10px;
+  width: 78px;
+}
+
 #sendPic {
   margin-left: 30%;
   background: rgb(130, 224, 255);
   border: 2px solid black;
   padding: 10px;
-  width: 10%;
+  width: 78px;
 }
 
 #messages li {
