@@ -31,6 +31,7 @@ form button {
 }
 
 #messages {
+  width: 67%;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -39,24 +40,19 @@ form button {
 }
 
 #chat {
-  width: 67%;
+  width: 100%;
 }
 
 #canvas {
   border: 1px solid black;
-  margin-left:520px;
-}
-
-#can {
-  float: right;
-  position: fixed;
-  height: 1px;
+  /* margin-left:520px; */
+  float:right;
 }
 
 #test {
-  width:50%;
+  width:100%;
   float: right;
-
+  position:fixed;
 }
 
 #test2 {
@@ -85,6 +81,7 @@ form button {
 }
 
 #messages li {
+  width: 100%;
   padding: 5px 10px;
   overflow-wrap: break-word;
   word-wrap: break-word;
